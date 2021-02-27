@@ -1,40 +1,41 @@
 package com.company.controllers;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Task {
-    private String project;
-    private String name;
-    private Date deadLine;
+    private String title;
+    private String description;
+    private String deadLine;
     private boolean isDone = false;
 
-    public Task(String project, String name, Date deadline) {
-        this.project = project;
-        this.name = name;
+    public Task(String title, String description, String deadline) {
+        this.title = title;
+        this.description = description;
         this.deadLine = deadline;
     }
 
-    public String getProject() {
-        return project;
+    public String getTitle() {
+        return title;
     }
 
-    public void setProject(String project) {
-        this.project = project;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getDeadLine() {
+    public String getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(Date deadLine) {
+    public void setDeadLine(String deadLine) {
         this.deadLine = deadLine;
     }
 
@@ -48,11 +49,11 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "project='" + project + '\'' +
-                ", name='" + name + '\'' +
-                ", deadLine=" + deadLine +
-                ", isDone=" + isDone +
-                '}';
+        return
+                "Title: \n" + title + '\n' +
+                "Description:\n" + description + '\n' +
+                "Dead Line: \n" + deadLine + '\n' +
+                "Status: \n" + (isDone? "Done":"Not Done yet")
+        ;
     }
 }
