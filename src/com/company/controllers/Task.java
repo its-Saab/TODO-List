@@ -15,6 +15,13 @@ public class Task {
         this.deadLine = deadline;
     }
 
+    public Task(String title, String description, String deadline, boolean isDone) {
+        this.title = title;
+        this.description = description;
+        this.deadLine = deadline;
+        this.isDone = isDone;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -51,9 +58,9 @@ public class Task {
     public String toString() {
         return
                 "Title: \n" + title + '\n' +
-                "Description:\n" + description + '\n' +
-                "Dead Line: \n" + deadLine + '\n' +
-                "Status: \n" + (isDone? "Done":"Not Done yet")
-        ;
+                        "Description:\n" + description + '\n' +
+                        "Dead Line: \n" + deadLine + '\n' +
+                        "Status: \n" + (isDone ? "Done" : "Not Done yet")
+                ;
     }
 }
