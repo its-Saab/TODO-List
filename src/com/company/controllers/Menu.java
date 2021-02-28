@@ -21,7 +21,7 @@ public class Menu {
                         new CreateTask();
                         break;
                     case 3:
-                        new TaskOperations().editTask();
+                        new EditTask();
                         break;
                     case 4:
                         System.out.println("Saving and Quitting");
