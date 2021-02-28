@@ -1,32 +1,38 @@
 package com.company.controllers;
 
+import com.company.view.Display;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Menu {
 
     public void run() {
         Scanner scanner;
-        int choosenOption;
+        int chosenOption;
         do {
             printOptions();
             scanner = new Scanner(System.in);
             try {
-                choosenOption = scanner.nextInt();
-                switch (choosenOption) {
+                chosenOption = scanner.nextInt();
+                switch (chosenOption) {
                     case 1:
-                        System.out.println("Show Task List");
+                        new Display().displayTask();
                         break;
                     case 2:
-                        System.out.println("Add New Task");
+                        new TaskOperations().createTask();
                         break;
                     case 3:
-                        System.out.println("Edit Task");
+                        new TaskOperations().editTask();
                         break;
                     case 4:
-                        System.out.println("Save and Quit");
+                        System.out.println("Saving and Quitting");
                         scanner.close();
                         System.exit(0);
                         break;
+                    default:
+                        System.err.println("Invalid input");
                 }
 
             } catch (Exception e) {
