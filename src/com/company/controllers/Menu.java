@@ -18,7 +18,7 @@ public class Menu {
                         new Display().displayTask();
                         break;
                     case 2:
-                        new TaskOperations().createTask();
+                        new CreateTask();
                         break;
                     case 3:
                         new TaskOperations().editTask();
