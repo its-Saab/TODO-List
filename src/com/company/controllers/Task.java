@@ -1,7 +1,5 @@
 package com.company.controllers;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Task {
     private String title;
