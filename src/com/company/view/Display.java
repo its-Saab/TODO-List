@@ -1,7 +1,6 @@
 package com.company.view;
 
 import java.io.*;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Display {

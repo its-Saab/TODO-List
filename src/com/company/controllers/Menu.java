@@ -1,9 +1,6 @@
 package com.company.controllers;
 
 import com.company.view.Display;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Menu {
