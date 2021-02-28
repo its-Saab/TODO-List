@@ -1,22 +1,25 @@
 package com.company.view;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Display {
     Scanner scanner;
-    public void displayTaskList() {
-        //TODO implement sorting both by date and project
+    public void displayTaskList() throws IOException {
         File currentDirectory = new File(".");
-
-        for (String fileName : currentDirectory.list()) {
-            if (fileName.endsWith(".txt")) {
-                System.out.println(fileName);
-            }
+        System.out.println("How would you like to view Tasks?");
+        System.out.print("1-By name / 2-By due date > ");
+        scanner = new Scanner(System.in);
+        int sortMethod = scanner.nextInt();
+        if(sortMethod == 1){
+            new Sort().sortByName(currentDirectory);
+        } else {
+            new Sort().sortByDate(currentDirectory);
         }
     }
 
-    public void displayTask() {
+    public void displayTask() throws IOException {
         displayTaskList();
         scanner = new Scanner(System.in);
         System.out.print("Enter project name to display >");
