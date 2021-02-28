@@ -27,7 +27,7 @@ public class Menu {
                         new TaskOperations().editTask();
                         break;
                     case 4:
-                        System.out.println("Save and Quit");
+                        System.out.println("Saving and Quitting");
                         scanner.close();
                         System.exit(0);
                         break;
