@@ -20,6 +20,7 @@ public class TaskOperations {
             System.out.printf("Project %s already exists\n ", projectName);
         } else {
             try (BufferedWriter newTask = new BufferedWriter(new FileWriter(projectName))) {
+
                 System.out.print("Enter Task title > ");
                 String title = scanner.nextLine();
                 System.out.print("Enter Task Description > ");
@@ -46,31 +47,13 @@ public class TaskOperations {
                 .map(a -> Arrays.asList(a))
                 .flatMap(l -> l.stream())
                 .collect(Collectors.toList());
+        System.out.print("1-Mark as done, 2-Remove, 3-Update > ");
+        int chosenOperation = scanner.nextInt();
 
-        System.out.println("Choose a section to edit(1-Title, 2-Description, 3-Dead Line, 4-Status");
-        int chosenSection = scanner.nextInt();
-        scanner.useDelimiter("\n");
-        switch (chosenSection) {
+        switch (chosenOperation){
+            //TODO fix duplicated code
             case 1:
-                System.out.printf("The current title is: %s\n", words.get(1));
-                System.out.print("Enter new title > ");
-                words.set(1, scanner.next());
-                System.out.printf("Title successfully changed to: %s \n", words.get(1));
-                break;
-            case 2:
-                System.out.printf("The current description is: %s\n", words.get(3));
-                System.out.print("Enter new description > ");
-                words.set(3, scanner.next());
-                System.out.printf("Description successfully changed to: %s \n", words.get(3));
-                break;
-            case 3:
-                System.out.printf("The current deadline is: %s\n", words.get(5));
-                System.out.print("Enter new deadline yyyy-mm-dd > ");
-                words.set(5, scanner.next());
-                System.out.printf("Deadline successfully changed  to: %s \n", words.get(5));
-                break;
-            case 4:
-                System.out.printf("The current deadline is: %s\n", words.get(7));
+                System.out.printf("The current status is: %s\n", words.get(7));
                 System.out.print("Mark as done? (y/n) > ");
                 if (scanner.next().equals("y")) {
                     words.set(7, "Done");
@@ -78,18 +61,59 @@ public class TaskOperations {
                     words.set(7, "Not done yet");
                 }
                 System.out.printf("Status successfully changed  to: %s \n", words.get(7));
+                try (BufferedWriter newTask = new BufferedWriter(new FileWriter(fileName))) {
+                    newTask.write(new Task(words.get(1), words.get(3), words.get(5), words.get(7).equals("Done") ? true : false).toString());
+                } catch (IOException e) {
+                    System.out.println("Cannot write file: " + fileName);
+                }
+                System.out.println("Task Updated successfully!");
                 break;
-            default:
-                System.out.println("Invalid input");
+            case 2:
+                File deleteFile = new File(fileName);
+                if (deleteFile.delete()) {
+                    System.out.println("Task deleted successfully");
+                } else {
+                    System.out.println("Something went wrong");
+                }
+                break;
+            case 3:
+                System.out.println("Choose a section to edit(1-Title, 2-Description, 3-Dead Line");
+                int chosenSection = scanner.nextInt();
+                scanner.useDelimiter("\n");
+                switch (chosenSection) {
+                    case 1:
+                        System.out.printf("The current title is: %s\n", words.get(1));
+                        System.out.print("Enter new title > ");
+                        words.set(1, scanner.next());
+                        System.out.printf("Title successfully changed to: %s \n", words.get(1));
+                        break;
+                    case 2:
+                        System.out.printf("The current description is: %s\n", words.get(3));
+                        System.out.print("Enter new description > ");
+                        words.set(3, scanner.next());
+                        System.out.printf("Description successfully changed to: %s \n", words.get(3));
+                        break;
+                    case 3:
+                        System.out.printf("The current deadline is: %s\n", words.get(5));
+                        System.out.print("Enter new deadline yyyy-mm-dd > ");
+                        words.set(5, scanner.next());
+                        System.out.printf("Deadline successfully changed  to: %s \n", words.get(5));
+                        break;
+                    default:
+                        System.out.println("Invalid input");
+                }
+                try (BufferedWriter newTask = new BufferedWriter(new FileWriter(fileName))) {
+                    newTask.write(new Task(words.get(1), words.get(3), words.get(5), words.get(7).equals("Done") ? true : false).toString());
+                } catch (IOException e) {
+                    System.out.println("Cannot write file: " + fileName);
+                }
+                System.out.println("Task Updated successfully!");
+            break;
         }
 
-        try (BufferedWriter newTask = new BufferedWriter(new FileWriter(fileName))) {
-            newTask.write(new Task(words.get(1), words.get(3), words.get(5), words.get(7).equals("Done") ? true : false).toString());
-        } catch (IOException e) {
-            System.out.println("Cannot write file: " + fileName);
-        }
-        System.out.println("Task Updated successfully!");
+
     }
+
 
     public void displayTaskList() {
         //TODO implement sorting both by date and project
