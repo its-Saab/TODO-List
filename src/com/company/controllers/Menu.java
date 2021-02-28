@@ -1,5 +1,7 @@
 package com.company.controllers;
 
+import com.company.view.Display;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class Menu {
                 chosenOption = scanner.nextInt();
                 switch (chosenOption) {
                     case 1:
-                        new TaskOperations().displayTask();
+                        new Display().displayTask();
                         break;
                     case 2:
                         new TaskOperations().createTask();
