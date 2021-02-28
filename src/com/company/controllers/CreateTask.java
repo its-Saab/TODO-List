@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CreateTask extends TaskOperations {
+public class CreateTask {
     Scanner scanner;
     public CreateTask() {
         System.out.print("Enter Project Name > ");
