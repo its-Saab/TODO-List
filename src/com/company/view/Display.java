@@ -1,20 +1,25 @@
 package com.company.view;
 
+import com.company.controllers.Menu;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class Display {
     Scanner scanner;
+
     public void displayTaskList() throws IOException {
         File currentDirectory = new File(".");
         System.out.println("How would you like to view Tasks?");
-        System.out.print("1-By name / 2-By due date > ");
+        System.out.print("1-By name / 2-By due date / 3- return > ");
         scanner = new Scanner(System.in);
         int sortMethod = scanner.nextInt();
-        if(sortMethod == 1){
+        if (sortMethod == 1) {
             new Sort().sortByName(currentDirectory);
-        } else {
+        } else if (sortMethod == 2) {
             new Sort().sortByDate(currentDirectory);
+        } else {
+            new Menu().run();
         }
     }
 
