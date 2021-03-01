@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CreateTask {
-    Scanner scanner;
+
     public CreateTask() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String regex = "^20[0-9][0-9]-([1][0-2]|[0][1-9])-([0-2][0-9]|[3][0-1])";
         String date;
         File currentDirectory;
@@ -29,13 +29,14 @@ public class CreateTask {
                 title = scanner.nextLine();
                 System.out.print("Enter Task Description > ");
                 description = scanner.nextLine();
-                do{
+                do {
                     System.out.print("Enter Task due date yyyy-MM-dd > ");
                     date = scanner.nextLine();
-                    if(!date.matches(regex)){
+                    if (!date.matches(regex)) {
                         System.out.println("Invalid date format");
                     }
-                }while(!date.matches(regex));
+                } while (!date.matches(regex));
+
                 newTask.write(new Task(title, description, date).toString());
                 System.out.println("Task added successfully!");
             } catch (IOException e) {

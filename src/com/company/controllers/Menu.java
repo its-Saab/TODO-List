@@ -1,11 +1,15 @@
 package com.company.controllers;
 
+import com.company.view.CountTasks;
 import com.company.view.Display;
+import com.company.view.Sort;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
 
-    public void run() {
+    public void run() throws IOException {
         Scanner scanner;
         int chosenOption;
         do {
@@ -38,9 +42,9 @@ public class Menu {
         } while (true);
     }
 
-    public static void printOptions() {
+    public static void printOptions() throws IOException {
         System.out.println("Welcome to ToDoLy");
-        System.out.println("You have X tasks todo and Y tasks are done!");
+        System.out.printf("You have %s tasks todo and %s tasks are done!\n",new CountTasks().getToDoTaskscount(),new CountTasks().getDoneTaskscount());
         System.out.println("Pick an option: ");
         System.out.println("\t 1- Show Task List (by date or project)");
         System.out.println("\t 2- Add New Task");
