@@ -56,7 +56,7 @@ public class EditTask {
                 }
                 break;
             case 3:
-                System.out.println("Choose a section to edit(1-Title, 2-Description, 3-Dead Line");
+                System.out.println("Choose a section to edit(1-Title, 2-Description, 3-Due date)");
                 int chosenSection = scanner.nextInt();
                 scanner.useDelimiter("\n");
                 switch (chosenSection) {
@@ -73,9 +73,18 @@ public class EditTask {
                         System.out.printf("Description successfully changed to: %s \n", words.get(3));
                         break;
                     case 3:
-                        System.out.printf("The current deadline is: %s\n", words.get(5));
-                        System.out.print("Enter new deadline yyyy-mm-dd > ");
-                        words.set(5, scanner.next());
+                        String regex = "^20[0-9][0-9]-([1][0-2]|[0][1-9])-([0-2][0-9]|[3][0-1])";
+                        String date;
+                        System.out.printf("The current due date is: %s\n", words.get(5));
+                        do{
+                            System.out.print("Enter new due date yyyy-mm-dd > ");
+                            date = scanner.next();
+                            if(!date.matches(regex)) {
+                                System.out.println("Invalid date format");
+                            } else{
+                                words.set(5, date);
+                            }
+                            }while(!date.matches(regex));
                         System.out.printf("Deadline successfully changed  to: %s \n", words.get(5));
                         break;
                     default:
