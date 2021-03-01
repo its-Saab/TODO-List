@@ -25,10 +25,10 @@ public class CountTasks {
                                 .map(s -> s.split("\\R"))
                                 .map(Arrays::asList)
                                 .flatMap(Collection::stream)
-                                .filter(file->file.length()>0)
+                                .filter(file -> file.length() > 0)
                                 .collect(Collectors.toList());
-                        
-                        if(eachTask.size() != 0){
+
+                        if (eachTask.size() != 0) {
                             if (eachTask.get(7).equals("Not Done yet")) {
                                 toDoTaskscount++;
                             } else {
