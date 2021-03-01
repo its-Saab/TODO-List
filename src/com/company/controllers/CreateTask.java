@@ -9,8 +9,10 @@ import java.util.Scanner;
 public class CreateTask {
     Scanner scanner;
     public CreateTask() {
-        System.out.print("Enter Project Name > ");
         scanner = new Scanner(System.in);
+        String regex = "^20[0-9][0-9]-([1][0-2]|[0][1-9])-([0-2][0-9]|[3][0-1])";
+        String date;
+        System.out.print("Enter Project Name > ");
         String projectNameWithTimestamp = scanner.nextLine();
         String projectName = projectNameWithTimestamp.replaceAll("\\s", "-") + ".txt";
         File currentDirectory = new File(projectName);
@@ -23,8 +25,13 @@ public class CreateTask {
                 String title = scanner.nextLine();
                 System.out.print("Enter Task Description > ");
                 String description = scanner.nextLine();
-                System.out.print("Enter Task due date yyyy-MM-dd > ");
-                String date = scanner.nextLine();
+                do{
+                    System.out.print("Enter Task due date yyyy-MM-dd > ");
+                    date = scanner.nextLine();
+                    if(!date.matches(regex)){
+                        System.out.println("Invalid date format");
+                    }
+                }while(!date.matches(regex));
                 newTask.write(new Task(title, description, date).toString());
                 System.out.println("Task added successfully!");
             } catch (IOException e) {
