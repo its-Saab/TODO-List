@@ -12,19 +12,23 @@ public class CreateTask {
         scanner = new Scanner(System.in);
         String regex = "^20[0-9][0-9]-([1][0-2]|[0][1-9])-([0-2][0-9]|[3][0-1])";
         String date;
+        File currentDirectory;
+        String projectName;
+        String title;
+        String description;
+
         System.out.print("Enter Project Name > ");
-        String projectNameWithTimestamp = scanner.nextLine();
-        String projectName = projectNameWithTimestamp.replaceAll("\\s", "-") + ".txt";
-        File currentDirectory = new File(projectName);
+        projectName = scanner.nextLine().replaceAll("\\s", "-") + ".txt";
+        currentDirectory = new File(projectName);
         if (currentDirectory.exists()) {
             System.out.printf("Project %s already exists\n ", projectName);
         } else {
             try (BufferedWriter newTask = new BufferedWriter(new FileWriter(projectName))) {
 
                 System.out.print("Enter Task title > ");
-                String title = scanner.nextLine();
+                title = scanner.nextLine();
                 System.out.print("Enter Task Description > ");
-                String description = scanner.nextLine();
+                description = scanner.nextLine();
                 do{
                     System.out.print("Enter Task due date yyyy-MM-dd > ");
                     date = scanner.nextLine();
