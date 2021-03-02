@@ -16,8 +16,8 @@ Pick an option:
 	 3- Edit Task (update, mark as done, remove)
 	 4- Save and Quit
 ```
-
-
+## Class Diagram
+![alt text](C:\Users\musaa\IdeaProjects\TODO-List\Class-Diagram.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
