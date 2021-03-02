@@ -27,17 +27,24 @@ public class CreateTask {
 
                 System.out.print("Enter Task title > ");
                 title = scanner.nextLine();
+                if(title.length() == 0){
+                    title = "none";
+                }
                 System.out.print("Enter Task Description > ");
                 description = scanner.nextLine();
+                if (description.length() == 0){
+                    description = "None";
+                }
                 do {
                     System.out.print("Enter Task due date yyyy-MM-dd > ");
                     date = scanner.nextLine();
-                    if (!date.matches(regex)) {
+                     if (!date.matches(regex)) {
                         System.out.println("Invalid date format");
                     }
                 } while (!date.matches(regex));
 
                 newTask.write(new Task(title, description, date).toString());
+                newTask.close();
                 System.out.println("Task added successfully!");
             } catch (IOException e) {
                 System.out.println("Cannot write file: " + projectName);

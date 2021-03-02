@@ -30,7 +30,6 @@ public class EditTask {
         int chosenOperation = scanner.nextInt();
 
         switch (chosenOperation) {
-            //TODO fix duplicated code
             case 1:
                 System.out.printf("The current status is: %s\n", words.get(7));
                 System.out.print("Mark as done? (y/n) > ");
