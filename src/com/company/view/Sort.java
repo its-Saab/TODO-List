@@ -20,7 +20,7 @@ public class Sort {
                 .filter(x -> x.toString().endsWith(".txt"))
                 .sorted()
                 .map(Path::getFileName)
-                .forEach(x -> System.out.println(x.toString()));
+                .forEach(x -> System.out.printf("%s%15s%s\n", "\033[1;34m", x.toString().replaceAll(".txt", ""), "\033[0m"));
     }
 
     public void sortByDate(File currentDirectory) throws IOException {
@@ -43,7 +43,6 @@ public class Sort {
                     }
                 })
                 .collect(Collectors.toList());
-        listOfFiles.forEach((x, y) -> System.out.println(x + " " + y.toString()));
-
+        listOfFiles.forEach((x, y) -> System.out.printf("%s%15s: %-5s%s\n", "\033[1;34m", x, y.toString().replaceAll(".txt", ""), "\033[0m"));
     }
 }

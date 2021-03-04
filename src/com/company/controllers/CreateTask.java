@@ -17,7 +17,7 @@ public class CreateTask {
         String title;
         String description;
 
-        System.out.print("Enter Project Name > ");
+        System.out.print("\033[1;33m" +"Enter Project Name > ");
         projectName = scanner.nextLine().replaceAll("\\s", "-") + ".txt";
         currentDirectory = new File(projectName);
         if (currentDirectory.exists()) {
@@ -25,12 +25,12 @@ public class CreateTask {
         } else {
             try (BufferedWriter newTask = new BufferedWriter(new FileWriter(projectName))) {
 
-                System.out.print("Enter Task title > ");
+                System.out.print( "Enter Task title > ");
                 title = scanner.nextLine();
                 if(title.length() == 0){
                     title = "none";
                 }
-                System.out.print("Enter Task Description > ");
+                System.out.print( "Enter Task Description > " );
                 description = scanner.nextLine();
                 if (description.length() == 0){
                     description = "None";
@@ -39,13 +39,13 @@ public class CreateTask {
                     System.out.print("Enter Task due date yyyy-MM-dd > ");
                     date = scanner.nextLine();
                      if (!date.matches(regex)) {
-                        System.out.println("Invalid date format");
+                        System.out.println("\033[0;31m" + "Invalid date format" +"\033[1;33m" );
                     }
                 } while (!date.matches(regex));
 
                 newTask.write(new Task(title, description, date).toString());
                 newTask.close();
-                System.out.println("Task added successfully!");
+                System.out.println("\033[0;35m" + "Task added successfully!"+ "\033[0m");
             } catch (IOException e) {
                 System.out.println("Cannot write file: " + projectName);
             }

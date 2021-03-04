@@ -25,9 +25,9 @@ public class Task {
     public String toString() {
         return
                 "Title: \n" + title + '\n' +
-                        "Description:\n" + description + '\n' +
-                        "Due date: \n" + dueDate + '\n' +
-                        "Status: \n" + (isDone ? "Done" : "Not Done yet")
+                "Description:\n" + description + '\n' +
+                "Due date: \n" + dueDate + '\n' +
+                "Status: \n" + (isDone ? "Done" : "Not Done yet")
                 ;
     }
 }
