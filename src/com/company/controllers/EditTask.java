@@ -32,7 +32,7 @@ public class EditTask {
         switch (chosenOperation) {
             case 1:
                 System.out.printf("The current status is: %s%s%s\n", "\033[0;35m", words.get(7), "\033[0m");
-                System.out.print("\033[1;33m" +"Mark as done? (y/n) > ");
+                System.out.print("\033[1;33m" + "Mark as done? (y/n) > ");
                 if (scanner.next().equals("y")) {
                     words.set(7, "Done");
                 } else {
