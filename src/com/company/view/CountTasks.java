@@ -9,12 +9,12 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class CountTasks {
-    private int doneTaskscount;
-    private int toDoTaskscount;
+    private int doneTasksCount;
+    private int toDoTasksCount;
 
     public CountTasks() throws IOException {
-        this.doneTaskscount = 0;
-        this.toDoTaskscount = 0;
+        this.doneTasksCount = 0;
+        this.toDoTasksCount = 0;
         File currentDirectory = new File(".");
         var filesInDirectory = Files.list(Paths.get(String.valueOf(currentDirectory)))
                 .filter(x -> x.toString().endsWith(".txt"))
@@ -30,9 +30,9 @@ public class CountTasks {
 
                         if (eachTask.size() != 0) {
                             if (eachTask.get(7).equals("Not Done yet")) {
-                                toDoTaskscount++;
+                                toDoTasksCount++;
                             } else {
-                                doneTaskscount++;
+                                doneTasksCount++;
                             }
                         }
 
@@ -43,11 +43,11 @@ public class CountTasks {
                 .collect(Collectors.toList());
     }
 
-    public int getDoneTaskscount() {
-        return doneTaskscount;
+    public int getDoneTasksCount() {
+        return doneTasksCount;
     }
 
-    public int getToDoTaskscount() {
-        return toDoTaskscount;
+    public int getToDoTasksCount() {
+        return toDoTasksCount;
     }
 }

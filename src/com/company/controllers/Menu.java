@@ -44,7 +44,7 @@ public class Menu {
 
     public static void printOptions() throws IOException {
         System.out.println("Welcome to ToDoLy");
-        System.out.printf("You have %s tasks todo and %s tasks are done!\n",new CountTasks().getToDoTaskscount(),new CountTasks().getDoneTaskscount());
+        System.out.printf("You have %s tasks todo and %s tasks are done!\n",new CountTasks().getToDoTasksCount(),new CountTasks().getDoneTasksCount());
         System.out.println("Pick an option: ");
         System.out.println("\t 1- Show Task List (by date or project)");
         System.out.println("\t 2- Add New Task");
