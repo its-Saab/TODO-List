@@ -6,15 +6,8 @@ ToDoLy is a todo list application via the command-line. The application will all
 ## User Interface
 
 
-
 ```ruby
-Welcome to ToDoLy
-You have 7 tasks todo and 1 tasks are done!
-Pick an option: 
-	 1- Show Task List (by date or project)
-	 2- Add New Task
-	 3- Edit Task (update, mark as done, remove)
-	 4- Save and Quit
+![User Interface](https://github.com/its-Saab/TODO-List/blob/master/console.PNG)
 ```
 
 ## Class Diagram
