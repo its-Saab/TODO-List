@@ -22,7 +22,7 @@ public class Menu {
                         new Display().displayTask();
                         break;
                     case 2:
-                        new CreateTask();
+                        new CreateTask().userInput();
                         break;
                     case 3:
                         new EditTask();
