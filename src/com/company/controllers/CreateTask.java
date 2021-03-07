@@ -17,7 +17,7 @@ public class CreateTask {
         String description;
 
         System.out.print("\033[1;33m" + "Enter Project Name > ");
-        String projectName = scanner.nextLine().replaceAll("\\s", "-") + ".txt";
+        String fileName = scanner.nextLine().replaceAll("\\s", "-") + ".txt";
 
         System.out.print("Enter Task title > ");
         title = scanner.nextLine();
@@ -39,11 +39,11 @@ public class CreateTask {
 
         Task task = new Task(title, description, date);
 
-        writeTask(projectName, task);
+        writeTask(fileName, task);
 
     }
 
-    private void writeTask(String fileName, Task task) {
+    public void writeTask(String fileName, Task task) {
         File currentDirectory = new File(fileName);
         if (currentDirectory.exists()) {
             System.out.printf("Project %s already exists\n ", fileName);
