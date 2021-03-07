@@ -8,7 +8,7 @@ ToDoLy is a todo list application via the command-line. The application will all
 
 
 ## Class Diagram
-![Class Diagram](https://github.com/its-Saab/TODO-List/blob/master/Class-Diagram.png)
+![Class Diagram](https://github.com/its-Saab/TODO-List/blob/gradle/UpdtClassDiagram.PNG)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
