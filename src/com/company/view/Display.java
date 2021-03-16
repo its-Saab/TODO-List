@@ -23,7 +23,6 @@ public class Display {
         }
     }
 
-    //TODO add colors to the file lines
     public void displayTask() throws IOException {
         displayTaskList();
         scanner = new Scanner(System.in);

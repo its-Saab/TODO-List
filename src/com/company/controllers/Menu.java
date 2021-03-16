@@ -43,14 +43,17 @@ public class Menu {
     }
 
     public static void printOptions() throws IOException {
+        int toDoTasksCount = new CountTasks().getToDoTasksCount();
+        int doneTasksCount = new CountTasks().getDoneTasksCount();
+
         System.out.println("\033[1;33m" + "Welcome to " + "\033[1;32m" + "To" + "\033[1;34m" + "Do" + "\033[1;35m" + "Ly" + "\u001B[33m");
         System.out.printf(
                 "You have %s%s%s tasks todo and %s%s%s tasks are done!\n",
                 "\u001B[36m",
-                new CountTasks().getToDoTasksCount(),
+                toDoTasksCount,
                 "\u001B[33m",
                 "\u001B[36m",
-                new CountTasks().getDoneTasksCount(),
+                doneTasksCount,
                 "\u001B[33m"
         );
         System.out.println("Pick an option: ");
