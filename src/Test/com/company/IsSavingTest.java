@@ -1,3 +1,5 @@
+package Test.com.company;
+
 import com.company.controllers.CreateTask;
 import com.company.controllers.Task;
 import org.junit.Test;
