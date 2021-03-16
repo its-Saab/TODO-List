@@ -53,7 +53,7 @@ public class EditTask {
                     case 1:
                         System.out.printf("The current title is: %s%s%s\n", "\033[0;35m", words.get(1), "\033[0m");
                         System.out.print("\033[1;33m" + "Enter new title > ");
-                        String updatedInput = scanner.next();
+                        String updatedInput = scanner.nextLine();
                         new UpdateFile(fileName).setState(1, updatedInput);
                         break;
                     case 2:
