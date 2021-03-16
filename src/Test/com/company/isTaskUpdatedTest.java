@@ -29,4 +29,19 @@ public class isTaskUpdatedTest {
 
         assertEquals("Done", words.get(7));
     }
+
+    @Test
+    public void isTitleChanged() throws IOException {
+        String fileName = "TrialProject.txt";
+        Task task = new Task("titleBefore", "this file is to test changing title", "2021-05-12");
+        new CreateTask().writeTask(fileName, task);
+        new UpdateFile(fileName).setState(1,"titleAfter");
+        var words = Files.lines(Paths.get(fileName))
+                .map(s -> s.split("\\R"))
+                .map(Arrays::asList)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        assertEquals("titleAfter", words.get(1));
+    }
 }
