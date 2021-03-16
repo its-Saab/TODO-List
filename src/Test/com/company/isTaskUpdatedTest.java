@@ -44,4 +44,19 @@ public class isTaskUpdatedTest {
 
         assertEquals("titleAfter", words.get(1));
     }
+
+    @Test
+    public void isDueDateChanged() throws IOException {
+        String fileName = "TrialProject2.txt";
+        Task task = new Task("titleBefore", "this file is to test changing Due date", "2021-06-12");
+        new CreateTask().writeTask(fileName, task);
+        new UpdateFile(fileName).setState(5,"2021-07-01");
+        var words = Files.lines(Paths.get(fileName))
+                .map(s -> s.split("\\R"))
+                .map(Arrays::asList)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        assertEquals("2021-07-01", words.get(5));
+    }
 }
