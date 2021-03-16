@@ -48,38 +48,7 @@ public class EditTask {
             case 3:
                 System.out.print("Choose a section to edit(1-Title, 2-Description, 3-Due date) >");
                 int chosenSection = scanner.nextInt();
-                scanner.nextLine();
-                switch (chosenSection) {
-                    case 1:
-                        System.out.printf("The current title is: %s%s%s\n", "\033[0;35m", words.get(1), "\033[0m");
-                        System.out.print("\033[1;33m" + "Enter new title > ");
-                        String updatedInput = scanner.nextLine();
-                        new UpdateFile(fileName).setState(1, updatedInput);
-                        break;
-                    case 2:
-                        System.out.printf("The current description is: %s%s%s\n", "\033[0;35m", words.get(3), "\033[0m");
-                        System.out.print("\033[1;33m" + "Enter new description > ");
-                        updatedInput = scanner.next();
-                        new UpdateFile(fileName).setState(3, updatedInput);
-                        break;
-                    case 3:
-                        String regex = "^20[0-9][0-9]-([1][0-2]|[0][1-9])-([0-2][0-9]|[3][0-1])";
-                        System.out.printf("The current due date is: %s%s%s\n", "\033[0;35m", words.get(5), "\033[0m");
-                        do {
-                            System.out.print("\033[1;33m" + "Enter new due date yyyy-mm-dd > ");
-                            updatedInput = scanner.next();
-                            if (!updatedInput.matches(regex)) {
-                                System.out.println("Invalid date format");
-                            } else {
-                                new UpdateFile(fileName).setState(5, updatedInput);
-
-                            }
-                        } while (!updatedInput.matches(regex));
-
-                        break;
-                    default:
-                        System.out.println("Invalid input");
-                }
+                new UpdateFile(fileName).updateTask(chosenSection);
                 break;
         }
     }
