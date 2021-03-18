@@ -2,10 +2,15 @@ package com.company.controllers;
 
 import com.company.view.CountTasks;
 import com.company.view.Display;
-
-
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * Menu Class contains the main menu's options and messages, each option is redirected
+ * to the class that performs it.
+ * @author Mosaab Abbas
+ * @since 1.0.0
+ **/
 
 public class Menu {
 

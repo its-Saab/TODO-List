@@ -8,9 +8,21 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+/**
+ * CountTasks Class is responsible for reading the tasks files and count the Done/To do tasks
+ * to be used in the Menu class.
+ * @author Mosaab Abbas
+ * @since 1.0.0
+ **/
+
 public class CountTasks {
     private int doneTasksCount;
     private int toDoTasksCount;
+
+    /*
+    * CountTasks method is designed to read each file and count the ones that are marked as Done/Not Done yet
+    * in-order to be used in the Menu class
+    * */
 
     public CountTasks() throws IOException {
         this.doneTasksCount = 0;

@@ -13,6 +13,12 @@ import java.util.Collection;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * EditTask Class is responsible for redirecting the user's request the UpdateFile class
+ * with the required data to update the saved tasks
+ * @author Mosaab Abbas
+ * @since 1.0.0
+ **/
 public class EditTask {
     Scanner scanner;
 
