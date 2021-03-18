@@ -6,8 +6,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * CreateTask Class receives create a task request from Menu class.
+ * @author Mosaab Abbas
+ * @since 1.0.0
+ **/
+
 public class CreateTask {
 
+    /**
+     * userInput method is designed to take the user input and forward the data to writeTask method.
+     **/
     public void userInput() {
 
         Scanner scanner = new Scanner(System.in);
@@ -43,6 +52,11 @@ public class CreateTask {
 
     }
 
+    /**
+     * writeTask method is designed to write tasks to file.
+     * @param fileName which is the desired file name for the new task.
+     * @param task which is the task that the user wants to write to the file.
+     **/
     public void writeTask(String fileName, Task task) {
         File currentDirectory = new File(fileName);
         if (currentDirectory.exists()) {

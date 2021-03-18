@@ -1,13 +1,21 @@
 package com.company.view;
 
 import com.company.controllers.Menu;
-
 import java.io.*;
 import java.util.Scanner;
+
+/**
+ * Display Class is responsible for displaying tasks list and each task
+ * @author Mosaab Abbas
+ * @since 1.0.0
+ **/
 
 public class Display {
     Scanner scanner;
 
+    /*
+    * This method is to display a list of all saved tasks.
+    */
     public void displayTaskList() throws IOException {
         File currentDirectory = new File(".");
         System.out.println("\033[1;33m" + "How would you like to view Tasks?");
@@ -23,7 +31,9 @@ public class Display {
         }
     }
 
-    //TODO add colors to the file lines
+    /*
+     * This method is to display a chosen task.
+     */
     public void displayTask() throws IOException {
         displayTaskList();
         scanner = new Scanner(System.in);
